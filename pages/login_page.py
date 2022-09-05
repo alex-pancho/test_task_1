@@ -21,22 +21,28 @@ class LoginPage(BasePage):
         super(LoginPage, self).__init__(*args, **kwargs)
 
     def login_email(self):
-        country = self.browser.find_element(*LoginPageLocators.COUNTRY_INPUT)
+        country = self.browser.find_element(*LoginPageLocators.COUNTRY)
         country.click()
         country_option = self.browser.find_element(*LoginPageLocators.COUNTRY_OPTION)
         country_option.click()
-        email = self.browser.find_element(*LoginPageLocators.EMAIL_INPUT)
+        email = self.browser.find_element(*LoginPageLocators.LOGIN)
         email.send_keys("asdsad@dsfsdf.sdf")
-        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BTN)
+        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
 
-    def get_code(self):
+    def login_sms(self):
+        phone = self.browser.find_element(*LoginPageLocators.LOGIN)
+        phone.send_keys("911123456")
+        login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
+        login_btn.click()
+        
+    def get_code(self, chars):
         html = self.browser.page_source
         #search using regex 
         x = re.findall('[0-9]+', html)
         
         def filterNumber(n):
-            if len(n) == 6:
+            if len(n) == chars:
                 return True
             else:
                 return False
