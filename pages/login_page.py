@@ -55,6 +55,9 @@ class LoginPage(BasePage):
             number = self.browser.find_element(By.CSS_SELECTOR, selector_numbers[i])
             number.click()
 
+    def should_be_warning_text(self):
+        assert self.is_element_present(*LoginPageLocators.WARNING_TEXT), "Warning text is not presented"
+
 
 
 

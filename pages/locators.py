@@ -10,6 +10,6 @@ class LoginPageLocators():
     LOGIN = (By.CSS_SELECTOR, "#mat-input-1")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button.submit-button")
     CODE = (By.CSS_SELECTOR, ".ng-untouched")
-    
+    WARNING_TEXT = (By.CSS_SELECTOR, ".warning-text")
 
     

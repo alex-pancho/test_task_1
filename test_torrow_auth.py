@@ -1,5 +1,7 @@
 import pytest
 import time
+
+from pages.locators import LoginPageLocators
 from .pages.base_page import BasePage
 from .pages.login_page import LoginPage
 from selenium.webdriver.support.ui import WebDriverWait
@@ -36,6 +38,16 @@ def test_email_login_with_incorrect_code(browser):
     browser.switch_to.window(browser.window_handles[0])
     page.enter_code(code)
     assert browser.current_url == "https://dev1.torrow.net/app/login/auth/email/code", "Authorization succeed"
+
+@pytest.mark.skip
+def test_email_login_with_too_long_waiting(browser):
+    link = "https://dev1.torrow.net/app/login/auth/email/text"
+    page = LoginPage(browser, link)
+    page.open()
+    page.login_email()
+    WebDriverWait(browser, 30).until(
+        EC.presence_of_element_located((LoginPageLocators.WARNING_TEXT)))
+    page.should_be_warning_text()
 
 @pytest.mark.skip
 def test_sms_login(browser):
