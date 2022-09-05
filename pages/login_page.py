@@ -3,7 +3,6 @@ from .base_page import BasePage
 from .locators import LoginPageLocators
 from selenium.webdriver.common.by import By
 
-
 selector_numbers = {
     "0": "ion-row:nth-child(4) > ion-col:nth-child(2) > button",
     "1": "ion-row:nth-child(1) > ion-col:nth-child(1) > button",
@@ -46,12 +45,9 @@ class LoginPage(BasePage):
         return code
     
     def enter_code(self, code):
-        print(code)
         for i in code[0]:
             number = self.browser.find_element(By.CSS_SELECTOR, selector_numbers[i])
             number.click()
-        
-
 
 
 
