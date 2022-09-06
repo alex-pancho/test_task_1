@@ -20,18 +20,19 @@ class LoginPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(LoginPage, self).__init__(*args, **kwargs)
 
-    def login_email(self):
-        country = self.browser.find_element(*LoginPageLocators.COUNTRY)
+    def login_email(self, email):
+        country = self.browser.find_element(*LoginPageLocators.COUNTRY_INPUT)
         country.click()
         country_option = self.browser.find_element(*LoginPageLocators.COUNTRY_OPTION)
         country_option.click()
-        email = self.browser.find_element(*LoginPageLocators.LOGIN)
-        email.send_keys("asdsad@dsfsdf.sdf")
+        email_input = self.browser.find_element(*LoginPageLocators.EMAIL_INPUT)
+        email_input.send_keys(email)
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()
 
     def login_sms(self):
-        phone = self.browser.find_element(*LoginPageLocators.LOGIN)
+        phone = self.browser.find_element(*LoginPageLocators.PHONE_INPUT)
+        phone.click()
         phone.send_keys("911123456")
         login_btn = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON)
         login_btn.click()

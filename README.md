@@ -7,7 +7,6 @@
  - Успешная аутент. по sms/email
  - Аутент. по sms/email с неправильным кодом, введенным один и более раз
  - Слишком большое ожидание ввода кода
- - Проверка sms/email на разных языках
 
 # Приложение:
 Приложение для тестирования находится по адресу https://dev1.torrow.net
@@ -17,4 +16,23 @@
 
 # Требования:
 - Тестовый проект должен быть написан на языке Python и Selenium.
-- Использовать паттерн PageObject (прим. https://docs.specflow.org/projects/specflow/en/latest/ui-automation/Selenium-with-Page-Object-Pattern.html)
+- Использовать паттерн PageObject (прим. https://docs.specflow.org/projects/specflow/en/latest/ui-automation/Selenium-with-Page-Object-Pattern.html) 
+
+### Копирование репозитория и установка зависимостей
+```bash
+git clone https://github.com/p2cbbb/torrow_qa_test
+cd torrow_qa_test
+virtualenv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### Запуск тестов
+ - Перед запуском тестов необходимо перейти в каталог проекта `torrow_qa_test`
+ 
+Аргументы запуска:
+- -s - показывать принты в процессе выполнения
+- -v - verbose режим, чтобы видеть, какие тесты были запущены
+```bash
+python -m pytest -v -s test_torrow_auth.py
+```
