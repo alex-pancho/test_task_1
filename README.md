@@ -2,7 +2,7 @@
 
 # Test task for the position SDET/QA Automation Engineer
 
-## The task is:
+## Your task is:
 > Write several scenarios for the authentication process.
 
 Examples of scenarios:
@@ -11,7 +11,7 @@ Examples of scenarios:
  - Too much waiting for code input
 
 # Appendix:
-Приложение для тестирования находится по адресу https://dev1.torrow.net
+App for testing https://dev1.torrow.net
 The sent code to the phone/email can be obtained by the following addresses:
 - https://smsdev1.torrow.net/api/phone/phone/[phoneNumber]
 
